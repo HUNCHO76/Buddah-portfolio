@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -13,12 +13,35 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
+
+    const sections = navLinks.map((link) => link.href.slice(1));
+    let current = "";
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 120) {
+        current = id;
+      }
+    }
+    setActiveSection(current);
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const el = document.getElementById(href.slice(1));
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <motion.nav
@@ -40,7 +63,12 @@ const Navbar = () => {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+                onClick={(e) => scrollTo(e, link.href)}
+                className={`font-mono text-sm transition-colors ${
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 <span className="text-primary text-xs">0{i + 1}.</span> {link.label}
               </a>
@@ -70,8 +98,12 @@ const Navbar = () => {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={(e) => scrollTo(e, link.href)}
+                  className={`block font-mono text-sm transition-colors ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   <span className="text-primary">0{i + 1}.</span> {link.label}
                 </a>
