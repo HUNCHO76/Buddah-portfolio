@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -65,6 +65,14 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded hover:bg-primary/90 transition-colors"
           >
             Contact Me
+          </a>
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/30 text-muted-foreground font-mono text-sm rounded hover:border-primary hover:text-primary transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Download CV
           </a>
         </motion.div>
 
