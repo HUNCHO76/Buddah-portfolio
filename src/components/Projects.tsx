@@ -8,15 +8,7 @@ const projects = [
     description:
       "A comprehensive hospital management system for managing patient records, appointments, billing, and staff coordination. Streamlines hospital operations with an intuitive interface.",
     tech: ["Laravel", "React", "MySQL", "REST API"],
-    github: "https://github.com/HUNCHO76",
-    live: "#",
-  },
-  {
-    title: "MRIMS - Frontend",
-    description:
-      "Frontend implementation of a Medical Records Information Management System. Provides secure access to patient medical histories with advanced search and filtering capabilities.",
-    tech: ["React", "TypeScript", "Redux", "Axios"],
-    github: "https://github.com/HUNCHO76",
+    github: "https://github.com/HUNCHO76/Hospital-management-10",
     live: "#",
   },
   {
@@ -24,7 +16,7 @@ const projects = [
     description:
       "A web-based platform for citizens to report crimes and track investigation progress. Features incident mapping, real-time notifications, and secure data handling.",
     tech: ["Laravel", "React", "PostgreSQL", "Maps API"],
-    github: "https://github.com/HUNCHO76",
+    github: "https://github.com/HUNCHO76/CrimeReportingSystem",
     live: "#",
   },
   {
@@ -32,7 +24,7 @@ const projects = [
     description:
       "A mobile and web health care delivery platform connecting patients with healthcare services. Includes appointment booking, telemedicine, and prescription management features.",
     tech: ["React", "Node.js", "MongoDB", "Firebase"],
-    github: "https://github.com/HUNCHO76",
+    github: "https://github.com/HUNCHO76/Afya-Nyumbani",
     live: "#",
   },
   {
@@ -40,7 +32,7 @@ const projects = [
     description:
       "A blood donation management platform connecting donors with hospitals. Features blood inventory tracking, urgent request notifications, and donor management dashboard.",
     tech: ["Laravel", "React", "MySQL", "WebSocket"],
-    github: "https://github.com/HUNCHO76",
+    github: "https://github.com/HUNCHO76/tanzania-blood-connect",
     live: "#",
   },
 ];
