@@ -58,7 +58,7 @@ const Hero = () => {
             href="#projects"
             className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary font-mono text-sm rounded hover:bg-primary/10 transition-colors"
           >
-            View Project
+            View Projects
           </a>
           <a
             href="#contact"
@@ -67,7 +67,7 @@ const Hero = () => {
             Contact Me
           </a>
           <a
-            href="/FrontendResume.pdf"
+            href={`${import.meta.env.BASE_URL}FrontendResume.pdf`}
             download="FrontendResume.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/30 text-muted-foreground font-mono text-sm rounded hover:border-primary hover:text-primary transition-colors"
           >
