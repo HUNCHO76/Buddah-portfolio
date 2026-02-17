@@ -58,7 +58,7 @@ const Hero = () => {
             href="#projects"
             className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary font-mono text-sm rounded hover:bg-primary/10 transition-colors"
           >
-            View Projects
+            View Project
           </a>
           <a
             href="#contact"
