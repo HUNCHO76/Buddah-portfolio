@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail, Instagram } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -23,7 +23,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4"
         >
-          Full-Stack Developer.
+          Abdulrahim Hussein Ismail.
         </motion.h1>
 
         <motion.h2
@@ -32,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-2xl md:text-4xl lg:text-5xl font-bold text-muted-foreground mb-8"
         >
-          I build things for the web.
+          Full-Stack Developer.
         </motion.h2>
 
         <motion.p
@@ -67,12 +67,12 @@ const Hero = () => {
             Contact Me
           </a>
           <a
-            href="/resume.pdf"
-            download
+            href="/FrontendResume.pdf"
+            download="FrontendResume.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/30 text-muted-foreground font-mono text-sm rounded hover:border-primary hover:text-primary transition-colors"
           >
             <Download className="w-4 h-4" />
-            Download CV
+            Download Resume
           </a>
         </motion.div>
 
@@ -84,14 +84,17 @@ const Hero = () => {
           className="flex gap-5 mt-12"
         >
           {[
-            { icon: Github, href: "#", label: "GitHub" },
-            { icon: Linkedin, href: "#", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/HUNCHO76", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/abdulrahim-hussein-665a88336/", label: "LinkedIn" },
+            { icon: Instagram, href: "https://www.instagram.com/b_u_d_d_a_h/", label: "Instagram" },
             { icon: Mail, href: "#contact", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Icon className="w-5 h-5" />

@@ -6,11 +6,15 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Show success message before redirect
+    setStatus("success");
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+      setStatus("idle");
+    }, 1000);
   };
 
   return (
@@ -28,31 +32,47 @@ const Contact = () => {
             have a project in mind or just want to connect, feel free to reach out.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4 text-left">
+          <form 
+            action="https://formsubmit.co/abdulrahimhussein76@gmail.com" 
+            method="POST"
+            onSubmit={handleSubmit} 
+            className="space-y-4 text-left"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={window.location.href} />
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
                 className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors font-mono text-sm"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
                 className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors font-mono text-sm"
               />
             </div>
             <textarea
+              name="message"
               placeholder="Your message..."
               rows={5}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
               className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors font-mono text-sm resize-none"
             />
             <div className="text-center">
+              {status === "success" && (
+                <p className="text-green-500 font-mono text-sm mb-4">Message sent successfully! ✓</p>
+              )}
               <button
                 type="submit"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-lg hover:bg-primary/90 transition-colors"

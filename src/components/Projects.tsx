@@ -4,35 +4,43 @@ import { ExternalLink, Github, Folder } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Hospital Management System",
     description:
-      "A full-featured e-commerce application with product management, cart system, payment integration, and admin dashboard. Built with a focus on performance and scalability.",
-    tech: ["Laravel", "React", "MySQL", "Stripe API"],
-    github: "#",
+      "A comprehensive hospital management system for managing patient records, appointments, billing, and staff coordination. Streamlines hospital operations with an intuitive interface.",
+    tech: ["Laravel", "React", "MySQL", "REST API"],
+    github: "https://github.com/HUNCHO76",
     live: "#",
   },
   {
-    title: "Real-Time Chat Application",
+    title: "MRIMS - Frontend",
     description:
-      "A WebSocket-powered messaging platform supporting real-time communication, user authentication, and message history with an intuitive React frontend.",
-    tech: ["Node.js", "Express.js", "Socket.io", "React"],
-    github: "#",
+      "Frontend implementation of a Medical Records Information Management System. Provides secure access to patient medical histories with advanced search and filtering capabilities.",
+    tech: ["React", "TypeScript", "Redux", "Axios"],
+    github: "https://github.com/HUNCHO76",
     live: "#",
   },
   {
-    title: "Project Management Tool",
+    title: "Crime Reporting System",
     description:
-      "A collaborative project management application with task tracking, team assignments, deadline management, and analytics dashboard.",
-    tech: ["Laravel", "React", "PostgreSQL", "REST API"],
-    github: "#",
+      "A web-based platform for citizens to report crimes and track investigation progress. Features incident mapping, real-time notifications, and secure data handling.",
+    tech: ["Laravel", "React", "PostgreSQL", "Maps API"],
+    github: "https://github.com/HUNCHO76",
     live: "#",
   },
   {
-    title: "API Gateway & Microservices",
+    title: "Afya Nyumbani",
     description:
-      "A scalable microservices architecture with a centralized API gateway, service discovery, load balancing, and comprehensive logging.",
-    tech: ["Node.js", "Express.js", "Docker", "MongoDB"],
-    github: "#",
+      "A mobile and web health care delivery platform connecting patients with healthcare services. Includes appointment booking, telemedicine, and prescription management features.",
+    tech: ["React", "Node.js", "MongoDB", "Firebase"],
+    github: "https://github.com/HUNCHO76",
+    live: "#",
+  },
+  {
+    title: "Tanzania Blood Connect",
+    description:
+      "A blood donation management platform connecting donors with hospitals. Features blood inventory tracking, urgent request notifications, and donor management dashboard.",
+    tech: ["Laravel", "React", "MySQL", "WebSocket"],
+    github: "https://github.com/HUNCHO76",
     live: "#",
   },
 ];
@@ -67,10 +75,10 @@ const Projects = () => {
                 <div className="flex justify-between items-start mb-4">
                   <Folder className="w-10 h-10 text-primary" />
                   <div className="flex gap-3">
-                    <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
+                    <a href={project.github} className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                       <Github className="w-5 h-5" />
                     </a>
-                    <a href={project.live} className="text-muted-foreground hover:text-primary transition-colors" aria-label="Live Demo">
+                    <a href={project.live} className="text-muted-foreground hover:text-primary transition-colors" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   </div>
